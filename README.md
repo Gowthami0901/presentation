@@ -1,10 +1,9 @@
 
-
 # **AI and Machine Learning Fundamentals Lab Guide**
 
 ## **Table of Contents**
 
-1. **Introduction**
+1. (Introduction)[#Introduction]
 2. **Prerequisites**
 3. **Installation Steps**
 4. **Lab Activities**
