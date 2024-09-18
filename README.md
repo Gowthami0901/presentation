@@ -1,12 +1,11 @@
-
 # **AI and Machine Learning Fundamentals Lab Guide**
 
 ## **Table of Contents**
 
-1. (Introduction)[#Introduction]
-2. **Prerequisites**
-3. **Installation Steps**
-4. **Lab Activities**
+1. [Introduction](#Introduction)
+2. [Prerequisites](#Prerequisites)
+3. [Installation Steps](#Installation_Steps)
+4. [Lab_Activities](#Lab_Activities)
    - 4.1. Set up a Python Environment
    - 4.2. Linear Regression with Scikit-learn
    - 4.3. Decision Tree Classifier
@@ -17,12 +16,12 @@
    - 4.8. Data Visualization (Matplotlib & Seaborn)
    - 4.9. Support Vector Machine (SVM) Model
    - 4.10. Deploying a Model as a REST API
-5. **Conclusion**
-6. **References**
+5. [Conclusion](#Conclusion)
+6. [References](#References)
 
 
 
-# **Introduction**
+# **1. Introduction**
 
 This guide aims to provide hands-on experience with various machine learning (ML) and artificial intelligence (AI) concepts. You will learn how to implement fundamental machine learning models, preprocess data, and deploy models through a REST API. All activities will be done using **VSCode** to enhance productivity and keep code well-organized.
 
@@ -79,7 +78,7 @@ Before starting the labs, ensure the following prerequisites are met:
 
 
 
-# **4. Lab Activities**
+# **4. Lab_Activities**
 
 ## **4.1. Set up a Python Environment**
 Test that your environment and libraries are installed correctly:
