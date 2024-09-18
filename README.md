@@ -24,8 +24,9 @@
 # **Introduction**
 
 This guide aims to provide hands-on experience with various machine learning (ML) and artificial intelligence (AI) concepts. You will learn how to implement fundamental machine learning models, preprocess data, and deploy models through a REST API. All activities will be done using **VSCode** to enhance productivity and keep code well-organized.
+<br>
 
-# **2. Prerequisites**
+# **Prerequisites**
 
 Before starting the labs, ensure the following prerequisites are met:
 
@@ -51,7 +52,7 @@ Before starting the labs, ensure the following prerequisites are met:
    - **Storage**: Minimum 20 GB of free disk space.
 
 
-# **3. Installation Steps**
+# **Installation_Steps**
 
 ## **Step 1: Install Python and VSCode**
    - Download and install **Python 3.x** from [python.org](https://www.python.org/).
@@ -78,7 +79,7 @@ Before starting the labs, ensure the following prerequisites are met:
 
 
 
-# **4. Lab_Activities**
+# **Lab_Activities**
 
 ## **4.1. Set up a Python Environment**
 Test that your environment and libraries are installed correctly:
