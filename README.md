@@ -21,7 +21,7 @@
 
 
 
-# **1. Introduction**
+# **Introduction**
 
 This guide aims to provide hands-on experience with various machine learning (ML) and artificial intelligence (AI) concepts. You will learn how to implement fundamental machine learning models, preprocess data, and deploy models through a REST API. All activities will be done using **VSCode** to enhance productivity and keep code well-organized.
 
