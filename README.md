@@ -1,324 +1,70 @@
-# **AI and Machine Learning Fundamentals Lab Guide**
-
-## **Table of Contents**
-
-1. [Introduction](#Introduction)
-2. [Prerequisites](#Prerequisites)
-3. [Installation Steps](#Installation_Steps)
-4. [Lab_Activities](#Lab_Activities)
-   - 4.1. Set up a Python Environment
-   - 4.2. Linear Regression with Scikit-learn
-   - 4.3. Decision Tree Classifier
-   - 4.4. Data Preprocessing (Normalization and Encoding)
-   - 4.5. Neural Network using TensorFlow or PyTorch
-   - 4.6. K-Means Clustering
-   - 4.7. Cross-Validation and Hyperparameter Tuning
-   - 4.8. Data Visualization (Matplotlib & Seaborn)
-   - 4.9. Support Vector Machine (SVM) Model
-   - 4.10. Deploying a Model as a REST API
-5. [Conclusion](#Conclusion)
-6. [References](#References)
-
-
-
-# **Introduction**
-
-This guide aims to provide hands-on experience with various machine learning (ML) and artificial intelligence (AI) concepts. You will learn how to implement fundamental machine learning models, preprocess data, and deploy models through a REST API. All activities will be done using **VSCode** to enhance productivity and keep code well-organized.
-<br>
-
-# **Prerequisites**
-
-Before starting the labs, ensure the following prerequisites are met:
-
-## **1. Operating System:**
-   - **Linux (Recommended)**: Ubuntu 18.04 LTS or later for better compatibility and performance.
-   - **Windows/MacOS**: Supported via **Windows Subsystem for Linux (WSL)** or native installations.
-   - **Python Version**: Ensure **Python 3.8** or later is installed.
-
-## **2. Python and VSCode Setup:**
-   - **Python**: Install Python 3.x from [python.org](https://www.python.org/).
-   - **VSCode**: Download and install [Visual Studio Code](https://code.visualstudio.com/).
-   - **VSCode Python Extension**: Ensure the **Python extension** for VSCode is installed. This can be done through the Extensions panel in VSCode.
-
-## **3. Required Libraries:**
-   Install the following Python libraries using **pip**:
-   ```bash
-   pip install numpy pandas scikit-learn matplotlib seaborn tensorflow torch torchvision torchaudio fastapi uvicorn
-   ```
-
-## **4. Resources:**
-   - **CPU**: Minimum 1 core (2+ cores recommended).
-   - **Memory**: At least 4 GB of RAM.
-   - **Storage**: Minimum 20 GB of free disk space.
-
-
-# **Installation_Steps**
-
-## **Step 1: Install Python and VSCode**
-   - Download and install **Python 3.x** from [python.org](https://www.python.org/).
-   - Download and install **VSCode** from [Visual Studio Code](https://code.visualstudio.com/).
-
-
-## **Step 2: Set Up Virtual Environment**
-   Open VSCode terminal and create a virtual environment to isolate the project:
-   ```bash
-   python -m venv ml_env
-   source ml_env/bin/activate  # On Windows: ml_env\Scripts\activate
-   ```
-
-## **Step 3: Install Required Packages**
-   Once the environment is activated, install all the required libraries:
-   ```bash
-   pip install numpy pandas scikit-learn matplotlib seaborn tensorflow torch fastapi uvicorn
-   ```
-
-## **Step 4: Configure VSCode**
-   - Open **VSCode**.
-   - Install the **Python extension** (if not installed).
-   - Open your project folder in VSCode and ensure the correct interpreter is selected (the one from the virtual environment).
-
-
-
-# **Lab_Activities**
-
-## **4.1. Set up a Python Environment**
-Test that your environment and libraries are installed correctly:
-```python
-import numpy as np
-import pandas as pd
-
-# Create random data
-data = pd.DataFrame({'x': np.random.randn(100), 'y': np.random.randn(100)})
-print(data.head())
-```
-
-Save the file as `setup.py`, open it in **VSCode**, and run the script using the terminal (`python setup.py`).
+Here are the reference links for each activity in the **AI and Machine Learning Fundamentals Lab**:
 
 ---
 
-## **4.2. Linear Regression with Scikit-learn**
-
-1. Load sample data.
-2. Split it into training and test sets.
-3. Train a linear regression model and evaluate it.
-
-```python
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
-
-# Sample data
-X = data[['x']]
-y = data['y']
-
-# Split data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-# Train model
-model = LinearRegression()
-model.fit(X_train, y_train)
-
-# Predict and evaluate
-y_pred = model.predict(X_test)
-print(f'Mean Squared Error: {mean_squared_error(y_test, y_pred)}')
-```
-
-Save the file as `linear_regression.py` and run it in **VSCode**.
+### **1. Set up a Python environment with libraries like NumPy, Pandas, and Scikit-learn**
+   - [NumPy Documentation](https://numpy.org/doc/stable/)
+   - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/)
+   - [Scikit-learn Documentation](https://scikit-learn.org/stable/documentation.html)
 
 ---
 
-#### **4.3. Decision Tree Classifier**
-
-1. Load the Iris dataset.
-2. Train a decision tree classifier and predict the target values.
-
-```python
-from sklearn.datasets import load_iris
-from sklearn.tree import DecisionTreeClassifier
-
-# Load dataset
-iris = load_iris()
-X, y = iris.data, iris.target
-
-# Train decision tree
-clf = DecisionTreeClassifier()
-clf.fit(X, y)
-
-# Make predictions
-predictions = clf.predict(X)
-print(f'Predictions: {predictions}')
-```
-
-Save the file as `decision_tree.py` and run it in VSCode.
+### **2. Implement linear regression using Scikit-learn on a sample dataset**
+   - [Scikit-learn: Linear Regression](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares)
+   - [Official Linear Regression Example](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html)
 
 ---
 
-#### **4.4. Data Preprocessing (Normalization and Encoding)**
-
-1. Normalize numerical data using `StandardScaler`.
-2. Perform one-hot encoding on categorical data.
-
-```python
-from sklearn.preprocessing import StandardScaler
-import pandas as pd
-
-# Normalize numerical data
-scaler = StandardScaler()
-scaled_data = scaler.fit_transform(X)
-
-# Example of encoding categorical data (if present)
-data_with_categorical = pd.get_dummies(data)
-print(data_with_categorical.head())
-```
-
-Save this as `data_preprocessing.py` and run it.
+### **3. Build and evaluate a decision tree classifier on a real-world dataset**
+   - [Scikit-learn: Decision Tree Classifier](https://scikit-learn.org/stable/modules/tree.html#classification)
+   - [Decision Tree Example on Iris Dataset](https://scikit-learn.org/stable/auto_examples/tree/plot_iris.html)
 
 ---
 
-#### **4.5. Neural Network using TensorFlow or PyTorch**
-
-Create a simple feedforward neural network for regression:
-
-```python
-import tensorflow as tf
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense
-
-# Define model
-model = Sequential([
-    Dense(64, activation='relu', input_shape=(X_train.shape[1],)),
-    Dense(1)
-])
-
-# Compile model
-model.compile(optimizer='adam', loss='mean_squared_error')
-
-# Train model
-model.fit(X_train, y_train, epochs=10, validation_data=(X_test, y_test))
-```
-
-Save this as `neural_network.py` and run it.
+### **4. Perform data preprocessing tasks like normalization and encoding using Pandas**
+   - [Pandas: DataFrame Normalization](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html)
+   - [Scikit-learn: Preprocessing Data](https://scikit-learn.org/stable/modules/preprocessing.html)
 
 ---
 
-#### **4.6. K-Means Clustering**
-
-Segment the data using K-means clustering.
-
-```python
-from sklearn.cluster import KMeans
-
-# K-Means Clustering
-kmeans = KMeans(n_clusters=3)
-kmeans.fit(X)
-labels = kmeans.labels_
-print(f'Cluster labels: {labels}')
-```
-
-Save it as `k_means.py` and run it.
+### **5. Create and train a simple neural network using TensorFlow or PyTorch**
+   - [TensorFlow Official Guide](https://www.tensorflow.org/guide)
+   - [PyTorch Documentation](https://pytorch.org/docs/stable/index.html)
+   - [Building Neural Networks with TensorFlow](https://www.tensorflow.org/tutorials/quickstart/beginner)
+   - [Building Neural Networks with PyTorch](https://pytorch.org/tutorials/beginner/nn_tutorial.html)
 
 ---
 
-#### **4.7. Cross-Validation and Hyperparameter Tuning**
-
-Apply K-fold cross-validation and hyperparameter tuning:
-
-```python
-from sklearn.model_selection import GridSearchCV
-
-# Define parameters to tune
-params = {'max_depth': [3, 5, 7]}
-
-# Grid search for hyperparameter tuning
-grid_search = GridSearchCV(DecisionTreeClassifier(), params, cv=5)
-grid_search.fit(X, y)
-
-print(f'Best parameters: {grid_search.best_params_}')
-```
-
-Save as `cross_validation.py` and run.
+### **6. Use K-means clustering to segment a dataset into different groups**
+   - [Scikit-learn: K-Means Clustering](https://scikit-learn.org/stable/modules/clustering.html#k-means)
+   - [K-Means Example](https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_digits.html)
 
 ---
 
-#### **4.8. Data Visualization (Matplotlib & Seaborn)**
-
-Visualize data distributions and relationships:
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Visualize pairplot
-sns.pairplot(data)
-plt.show()
-```
-
-Save as `visualization.py` and run.
+### **7. Implement cross-validation and hyperparameter tuning for a machine learning model**
+   - [Scikit-learn: Cross-Validation](https://scikit-learn.org/stable/modules/cross_validation.html)
+   - [Scikit-learn: Grid Search for Hyperparameter Tuning](https://scikit-learn.org/stable/modules/grid_search.html)
 
 ---
 
-#### **4.9. Support Vector Machine (SVM) Model**
-
-Train and evaluate an SVM model:
-
-```python
-from sklearn.svm import SVC
-
-# Train SVM
-svm = SVC()
-svm.fit(X_train, y_train)
-
-# Evaluate
-accuracy = svm.score(X_test, y_test)
-print(f'Accuracy: {accuracy}')
-```
-
-Save as `svm.py` and run.
+### **8. Visualize data distributions and model results using Matplotlib and Seaborn**
+   - [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
+   - [Seaborn Documentation](https://seaborn.pydata.org/)
 
 ---
 
-#### **4.10. Deploying a Model as a REST API**
-
-Deploy a trained model using **FastAPI**:
-
-```python
-from fastapi import FastAPI
-import uvicorn
-
-app = FastAPI()
-
-@app.post("/predict")
-def predict(input_data: dict):
-    # Model prediction logic goes here
-    return {"prediction": "model result"}
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
-```
-
-Save it as `api.py` and run it using:
-```bash
-uvicorn api:app --reload
-```
+### **9. Train a support vector machine (SVM) model and evaluate its performance**
+   - [Scikit-learn: Support Vector Machines](https://scikit-learn.org/stable/modules/svm.html)
+   - [SVM Classifier Example](https://scikit-learn.org/stable/auto_examples/classification/plot_iris_svc.html)
 
 ---
 
-### **5. Content in Excel**
+### **10. Deploy a trained machine learning model as a REST API using Flask or FastAPI**
+   - [FastAPI Official Documentation](https://fastapi.tiangolo.com/)
+   - [Flask Official Documentation](https://flask.palletsprojects.com/en/2.0.x/)
+   - [Deploying ML Models with FastAPI](https://towardsdatascience.com/deploying-machine-learning-models-as-api-using-fastapi-1730c30239fa)
+   - [Deploying ML Models with Flask](https://towardsdatascience.com/deploy-machine-learning-models-using-flask-8bd7911a6b23)
 
-You can track the results of each lab activity (such as accuracy, MSE, or cluster labels) in an Excel sheet for documentation and comparison.
+---
 
-### **6. Conclusion**
-
-This lab guide covered a broad range of machine learning fundamentals, from data preprocessing to model
-
- deployment. Working through these activities will give you hands-on experience in key AI/ML concepts.
-
-### **7. References**
-
-- [Python Official Website](https://www.python.org/)
-- [Scikit-learn Documentation](https://scikit-learn.org/)
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-
---- 
-
-This guide is designed to ensure clarity and ease of understanding for beginners, all while using VSCode as the primary IDE.
+These resources should provide the necessary references for each activity in the lab.
