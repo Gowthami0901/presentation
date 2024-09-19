@@ -1,4 +1,4 @@
-Here are the reference links for each activity in the **AI and Machine Learning Fundamentals Lab**:
+**AI and Machine Learning Fundamentals Lab**:
 
 ---
 
@@ -67,4 +67,3 @@ Here are the reference links for each activity in the **AI and Machine Learning 
 
 ---
 
-These resources should provide the necessary references for each activity in the lab.
