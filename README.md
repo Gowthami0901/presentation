@@ -11,7 +11,7 @@
 
 ### **2. Implement linear regression using Scikit-learn on a sample dataset**
    - [Scikit-learn: Linear Regression](https://scikit-learn.org/stable/modules/linear_model.html#ordinary-least-squares)
-   - [Official Linear Regression Example](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html)
+   - [Linear Regression Example](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ols.html)
 
 ---
 
