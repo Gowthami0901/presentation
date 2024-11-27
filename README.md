@@ -1,16 +1,25 @@
-
 ```mermaid
 sequenceDiagram
     participant User
+    participant PropertyListingComponent
     participant PropertyDetailComponent
+    participant ActivatedRoute
     participant PropertyService
-    participant BackendAPI
 
-    User->>+PropertyDetailComponent: Navigate to Property Detail Page
-    PropertyDetailComponent->>+PropertyService: Fetch property details by ID
-    PropertyService->>+BackendAPI: GET /properties/:id
-    BackendAPI-->>-PropertyService: Return property details
-    PropertyService-->>-PropertyDetailComponent: Return property details
-    PropertyDetailComponent-->>-User: Display property details
-    Note over User: User views the property details
+    User->>PropertyListingComponent: Load Property Listing
+    PropertyListingComponent->>PropertyService: getProperties()
+    Note right of PropertyService: Ensure proper authentication and authorization
+    PropertyService-->>PropertyListingComponent: properties[]
+    PropertyListingComponent-->>User: Display properties
+
+    User->>PropertyDetailComponent: Select Property
+    PropertyDetailComponent->>ActivatedRoute: Get property ID from route
+    ActivatedRoute-->>PropertyDetailComponent: property ID
+    PropertyDetailComponent->>PropertyService: getProperty(id)
+    Note right of PropertyService: Validate and sanitize property ID
+    PropertyService-->>PropertyDetailComponent: property
+    PropertyDetailComponent-->>User: Display property details
+    PropertyService-->>PropertyDetailComponent: error (if any)
+    Note right of PropertyDetailComponent: Handle errors securely to avoid information leakage
+    PropertyDetailComponent-->>User: Display error message (if any)
 ```
