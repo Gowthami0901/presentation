@@ -1,34 +1,22 @@
 ```mermaid
-erDiagram
-    PROPERTY {
-        int id PK
-        varchar name
-        varchar address
-        decimal price
-        int size
-    }
+sequenceDiagram
+    participant User
+    participant PropertyListingComponent
+    participant PropertyDetailComponent
+    participant ActivatedRoute
+    participant PropertyService
 
-    PROPERTYOWNER {
-        int id PK
-        varchar name
-        varchar email
-        varchar phone
-    }
+    User->>PropertyListingComponent: Load Property Listing
+    PropertyListingComponent->>PropertyService: getProperties()
+    PropertyService-->>PropertyListingComponent: properties[]
+    PropertyListingComponent-->>User: Display properties
 
-    PROPERTYOWNERRELATIONSHIP {
-        int property_id PK
-        int owner_id PK
-    }
-
-    PROPERTYTRANSACTION {
-        int id PK
-        int property_id
-        date transaction_date
-        enum transaction_type
-        decimal transaction_amount
-    }
-
-    PROPERTYOWNERRELATIONSHIP ||--o{ PROPERTY : "property_id"
-    PROPERTYOWNERRELATIONSHIP ||--o{ PROPERTYOWNER : "owner_id"
-    PROPERTYTRANSACTION ||--o{ PROPERTY : "property_id"
+    User->>PropertyDetailComponent: Select Property
+    PropertyDetailComponent->>ActivatedRoute: Get property ID from route
+    ActivatedRoute-->>PropertyDetailComponent: property ID
+    PropertyDetailComponent->>PropertyService: getProperty(id)
+    PropertyService-->>PropertyDetailComponent: property
+    PropertyDetailComponent-->>User: Display property details
+    PropertyService-->>PropertyDetailComponent: error (if any)
+    PropertyDetailComponent-->>User: Display error message (if any)
 ```
