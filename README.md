@@ -1,43 +1,34 @@
 ```mermaid
-classDiagram
-    class PropertyEntity {
-        +int id
-        +String name
-        +String address
-        +float price
-        +float size
-        +__init__(id, name, address, price, size)
-        +__str__()
+erDiagram
+    PROPERTY {
+        int id PK
+        varchar name
+        varchar address
+        decimal price
+        int size
     }
 
-    class PropertyService {
-        -PropertyRepository property_repository
-        +__init__(property_repository)
-        +fetch_property(property_id)
-        +create_property(property_entity)
-        +update_property(property_id, updated_entity)
-        +delete_property(property_id)
+    PROPERTYOWNER {
+        int id PK
+        varchar name
+        varchar email
+        varchar phone
     }
 
-    class PropertyRepository {
-        -db_connection
-        +__init__(db_connection)
-        +get_by_id(property_id)
-        +save_property(property_entity)
-        +update_property(property_id, updated_entity)
-        +delete_property(property_id)
+    PROPERTYOWNERRELATIONSHIP {
+        int property_id PK
+        int owner_id PK
     }
 
-    class PropertyController {
-        -PropertyService property_service
-        +__init__(property_service)
-        +get_property(property_id)
-        +create_property(property_details)
-        +update_property(property_id, updated_details)
-        +delete_property(property_id)
+    PROPERTYTRANSACTION {
+        int id PK
+        int property_id
+        date transaction_date
+        enum transaction_type
+        decimal transaction_amount
     }
 
-    PropertyService --> PropertyRepository
-    PropertyController --> PropertyService
-    PropertyRepository --> PropertyEntity
+    PROPERTYOWNERRELATIONSHIP ||--o{ PROPERTY : "property_id"
+    PROPERTYOWNERRELATIONSHIP ||--o{ PROPERTYOWNER : "owner_id"
+    PROPERTYTRANSACTION ||--o{ PROPERTY : "property_id"
 ```
