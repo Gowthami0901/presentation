@@ -1,22 +1,12 @@
 ```mermaid
-sequenceDiagram
-    participant User
-    participant PropertyListingComponent
-    participant PropertyDetailComponent
-    participant ActivatedRoute
-    participant PropertyService
-
-    User->>PropertyListingComponent: Load Property Listing
-    PropertyListingComponent->>PropertyService: getProperties()
-    PropertyService-->>PropertyListingComponent: properties[]
-    PropertyListingComponent-->>User: Display properties
-
-    User->>PropertyDetailComponent: Select Property
-    PropertyDetailComponent->>ActivatedRoute: Get property ID from route
-    ActivatedRoute-->>PropertyDetailComponent: property ID
-    PropertyDetailComponent->>PropertyService: getProperty(id)
-    PropertyService-->>PropertyDetailComponent: property
-    PropertyDetailComponent-->>User: Display property details
-    PropertyService-->>PropertyDetailComponent: error (if any)
-    PropertyDetailComponent-->>User: Display error message (if any)
+journey
+    title User Journey for Property Detail Component
+    section Load Property Detail
+      User: Clicks on a property listing: 5: User
+      PropertyDetailComponent: Initializes component and calls ngOnInit: 5: PropertyDetailComponent
+      PropertyDetailComponent: Calls getProperty method: 5: PropertyDetailComponent
+      PropertyDetailComponent: Retrieves property ID from route: 4: PropertyDetailComponent
+      PropertyService: Fetches property details using getProperty: 4: PropertyService
+      PropertyDetailComponent: Receives property details or error: 4: PropertyDetailComponent
+      PropertyDetailComponent: Displays property details or error message: 5: PropertyDetailComponent
 ```
